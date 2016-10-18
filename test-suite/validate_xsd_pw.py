@@ -25,7 +25,10 @@ KS_ENERGIES_TAG = BAND_STRUCTURE_TAG + '/ks_energies'
 
 TOLS = dict()
 TOLS[TOT_ENERGY_TAG] = 5
+TOLS[EFERMI_TAG] = 5
 TOLS[NBND_TAG] = 0
+TOLS[NKS_TAG] = 0
+TOLS[DFT_FUNCT_TAG] = -1 # str
 TOLS[ECUTWFC_TAG] = 2
 TOLS[ECUTRHO_TAG] = 2
 
@@ -35,7 +38,10 @@ XMLValidation = namedtuple('XMLValidation', ('tag', 'attrib', 'ref_value'))
 VALIDATION_DICT = dict()
 VALIDATION_DICT['WaterP1_0_scf_0'] = list()
 VALIDATION_DICT['WaterP1_0_scf_0'].append(XMLValidation(TOT_ENERGY_TAG, False, -16.91816749))
+VALIDATION_DICT['WaterP1_0_scf_0'].append(XMLValidation(EFERMI_TAG, False, 0.18547017))
 VALIDATION_DICT['WaterP1_0_scf_0'].append(XMLValidation(NBND_TAG, False, 14))
+VALIDATION_DICT['WaterP1_0_scf_0'].append(XMLValidation(NKS_TAG, False, 8))
+VALIDATION_DICT['WaterP1_0_scf_0'].append(XMLValidation(DFT_FUNCT_TAG, False, 'PBE'))
 VALIDATION_DICT['WaterP1_0_scf_0'].append(XMLValidation(ECUTWFC_TAG, False, 20))
 VALIDATION_DICT['WaterP1_0_scf_0'].append(XMLValidation(ECUTRHO_TAG, False, 100))
 
