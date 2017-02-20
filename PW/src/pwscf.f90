@@ -87,23 +87,22 @@ FUNCTION get_server_address ( command_line ) RESULT ( srvaddress )
   nargs = my_iargc ( command_line )
   !
   narg = 0
-10 CONTINUE
-  CALL my_getarg ( command_line, narg, arg )
-  IF ( TRIM (arg) == '-ipi' .OR. TRIM (arg) == '--ipi' ) THEN
-     IF ( srvaddress == ' ' ) THEN
-        narg = narg + 1
-        IF ( narg > nargs ) THEN
-           CALL infomsg('get_server_address','missing server IP in command line')
-           RETURN
-        ELSE
-           CALL my_getarg ( command_line, narg, srvaddress )
-        END IF
-     ELSE
-        CALL infomsg('get_server_address','duplicated server IP in command line')
-     END IF
-  END IF
-  narg = narg + 1
-  IF ( narg > nargs ) RETURN
-  GO TO 10
+  DO WHILE (narg < nargs) 
+    CALL my_getarg ( command_line, narg, arg )
+    IF ( TRIM (arg) == '-ipi' .OR. TRIM (arg) == '--ipi' ) THEN
+       IF ( srvaddress == ' ' ) THEN
+          narg = narg + 1
+          IF ( narg > nargs ) THEN
+             CALL infomsg('get_server_address','missing server IP in command line')
+             RETURN
+          ELSE
+             CALL my_getarg ( command_line, narg, srvaddress )
+          END IF
+       ELSE
+          CALL infomsg('get_server_address','duplicated server IP in command line')
+       END IF
+    END IF
+    narg = narg + 1
+  END DO
   !
 END FUNCTION get_server_address
