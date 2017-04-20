@@ -182,17 +182,17 @@ SUBROUTINE summary()
   !
   ! ... and here more detailed information. Description of the unit cell
   !
-  WRITE( stdout, '(/2(3X,3(2X,"celldm(",I1,")=",F11.6),/))' ) &
+  WRITE( stdout, '(/2(4X,3(1X,"celldm(",I1,")=",F14.9),/))' ) &
        ( i, celldm(i), i = 1, 6 )
   !
   WRITE( stdout, '(5X, &
        &     "crystal axes: (cart. coord. in units of alat)",/, &
-       &       3(15x,"a(",i1,") = (",3f11.6," )  ",/ ) )')  (apol,  &
+       &       3(15x,"a(",i1,") = (",3f14.9," )  ",/ ) )')  (apol,  &
        (at (ipol, apol) , ipol = 1, 3) , apol = 1, 3)
   !
   WRITE( stdout, '(5x, &
        &   "reciprocal axes: (cart. coord. in units 2 pi/alat)",/, &
-       &            3(15x,"b(",i1,") = (",3f10.6," )  ",/ ) )')  (apol,&
+       &            3(15x,"b(",i1,") = (",3f13.9," )  ",/ ) )')  (apol,&
        &  (bg (ipol, apol) , ipol = 1, 3) , apol = 1, 3)
   !
   CALL print_ps_info ( )
@@ -284,7 +284,7 @@ SUBROUTINE summary()
   WRITE( stdout, '(/,3x,"Cartesian axes")')
   WRITE( stdout, '(/,5x,"site n.     atom                  positions (alat units)")')
 
-  WRITE( stdout, '(6x,i4,8x,a6," tau(",i4,") = (",3f12.7,"  )")') &
+  WRITE( stdout, '(6x,i4,2x,a4," tau(",i4,") = (",3f15.10,"  )")') &
              (na, atm(ityp(na)), na, (tau(ipol,na), ipol=1,3), na=1,nat)
   !
   !  output of starting magnetization
@@ -312,7 +312,7 @@ SUBROUTINE summary()
      WRITE( stdout, '(/,5x,"site n.     atom        ", &
           &             "          positions (cryst. coord.)")')
 
-     WRITE( stdout, '(6x,i4,8x,a6," tau(",i4,") = (",3f11.7,"  )")') &
+     WRITE( stdout, '(6x,i4,2x,a4," tau(",i4,") = (",3f14.10,"  )")') &
            (na, atm(ityp(na)), na,  (xau(ipol,na), ipol=1,3), na=1,nat)
      !
      !   deallocate work space
