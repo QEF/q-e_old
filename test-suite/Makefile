@@ -52,6 +52,13 @@ run-tests-pw-serial : prolog pseudo
 run-tests-pw-parallel : prolog pseudo
 	env QE_USE_MPI=1 ${TESTCODE_DIR}/bin/testcode.py --verbose --category=pw_all
 
+run-tests-xsd-pw-serial : prolog pseudo
+	cd xsd_pw ; for file in ./*.in ; do \
+		echo "Running using $$file" ; \
+		env QE_USE_MPI=0 ../run-pw.sh -in $$file &> $$file.out ; \
+		python ../validate_xsd_pw.py $$file; \
+	done ; cd ..
+
 run-tests-epw-serial : prolog pseudo
 	env QE_USE_MPI=0 ${TESTCODE_DIR}/bin/testcode.py --verbose --category=epw_all
 
