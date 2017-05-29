@@ -1298,7 +1298,7 @@ subroutine global_pola_lanczos(nstates,nstates_eff,threshold,nglobal,nsteps,nump
   USE wannier_gw, ONLY : l_verbose
   USE klist, ONLY : igk_k
 
-  implicit none
+  IMPLICIT none
   
   INTEGER, EXTERNAL :: find_free_unit
   
@@ -1598,7 +1598,6 @@ end subroutine global_pola_lanczos
 subroutine orthonormalize_two_manifolds_scalapack( state1, n1,state2, n2, threshold, state_out, n_out)
 !this subroutine form am orthormal basis set from 2 manifold (with orthonormal basis sets)
 !ONLY FOR NORM_CONSERVING CASE
-#if defined(__SCALAPACK)
 
    USE io_global,            ONLY : stdout, ionode, ionode_id
    USE kinds,    ONLY : DP
@@ -1608,7 +1607,7 @@ subroutine orthonormalize_two_manifolds_scalapack( state1, n1,state2, n2, thresh
    USE mp_world, ONLY : world_comm
    USE wannier_gw, ONLY : p_mpime,p_nproc, npcol, nprow,icontxt,myrow,mycol
    
-  implicit none
+  IMPLICIT none
 
   COMPLEX(kind=DP), INTENT(in)  :: state1(npw,n1)!1st orthonormal basis 
   INTEGER, INTENT(in)           :: n1!number of 1st basis elements
@@ -1630,6 +1629,7 @@ subroutine orthonormalize_two_manifolds_scalapack( state1, n1,state2, n2, thresh
   REAL(kind=DP) :: sca
   INTEGER :: desc_a(9),desc_b(9)
  
+#if defined(__SCALAPACK)
 !buid overlap matrix
   n=n1+n2
   n_r=ceiling(real(n)/real(max(nprow,npcol)))
