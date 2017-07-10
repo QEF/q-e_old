@@ -1298,7 +1298,7 @@ subroutine global_pola_lanczos(nstates,nstates_eff,threshold,nglobal,nsteps,nump
   USE wannier_gw, ONLY : l_verbose
   USE klist, ONLY : igk_k
 
-  implicit none
+  IMPLICIT none
   
   INTEGER, EXTERNAL :: find_free_unit
   
@@ -1607,7 +1607,7 @@ subroutine orthonormalize_two_manifolds_scalapack( state1, n1,state2, n2, thresh
    USE mp_world, ONLY : world_comm
    USE wannier_gw, ONLY : p_mpime,p_nproc, npcol, nprow,icontxt,myrow,mycol
    
-  implicit none
+  IMPLICIT none
 
   COMPLEX(kind=DP), INTENT(in)  :: state1(npw,n1)!1st orthonormal basis 
   INTEGER, INTENT(in)           :: n1!number of 1st basis elements
