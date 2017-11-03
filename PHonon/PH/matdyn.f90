@@ -2068,6 +2068,7 @@ SUBROUTINE a2Fdos &
   character(len=256)        :: elph_dir
   real(DP), external       :: dos_gam
   CHARACTER(LEN=6)         :: int_to_char
+  EXTERNAL do_q2r
   !
   !
   nmodes = 3*nat
