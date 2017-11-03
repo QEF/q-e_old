@@ -78,7 +78,7 @@ PROGRAM q2r
   INTEGER                  :: nr1, nr2, nr3, nr(3)
   !     dimensions of the FFT grid formed by the q-point grid
   !
-  CHARACTER(len=20)  :: crystal
+  CHARACTER(len=20)  :: crystal1
   CHARACTER(len=256) :: fildyn, filin, filj, filf, flfrc
   CHARACTER(len=3)   :: atm(ntypx)
   CHARACTER(LEN=6), EXTERNAL :: int_to_char
