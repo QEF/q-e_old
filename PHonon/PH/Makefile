@@ -117,6 +117,7 @@ q_points_wannier.o \
 q2qstar_ph.o \
 random_matrix.o \
 read_wfc_rspace_and_fwfft.o \
+rigid.o \
 rotate_dvscf_star.o \
 rotate_and_add_dyn.o \
 rotate_pattern_add.o \
@@ -159,7 +160,7 @@ write_matrix.o \
 write_modes.o \
 write_rec.o \
 zstar_eu.o \
-zstar_eu_us.o 
+zstar_eu_us.o
 
 RAMANOBJS =    \
 psyme2.o   \
@@ -178,8 +179,7 @@ d2mxc.o    \
 raman_mat.o\
 raman.o    \
 dhdrhopsi.o\
-set_dvscf.o \
-rigid.o \
+set_dvscf.o
 
 PHAUXOBJS = \
 write_eigenvectors.o
