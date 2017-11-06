@@ -52,6 +52,7 @@ dfile_autoname.o \
 dfile_star.o \
 dielec.o \
 do_phonon.o \
+do_q2r.o \
 drho.o \
 drhodv.o \
 drhodvloc.o \
@@ -177,10 +178,10 @@ d2mxc.o    \
 raman_mat.o\
 raman.o    \
 dhdrhopsi.o\
-set_dvscf.o
+set_dvscf.o \
+rigid.o \
 
 PHAUXOBJS = \
-rigid.o \
 write_eigenvectors.o
 
 LRMODS = ../../LR_Modules/liblrmod.a

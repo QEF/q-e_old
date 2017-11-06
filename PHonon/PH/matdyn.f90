@@ -145,6 +145,7 @@ PROGRAM matdyn
   USE bz_form,    ONLY : transform_label_coord
   USE parser,     ONLY : read_line
   USE ktetra,     ONLY : tetra_dos_t
+  USE rigid,       ONLY: dyndiag, nonanal, nonanal_ifc
 
   USE ifconstants, ONLY : frc, atm, zeu, tau_blk, ityp_blk, m_loc
   !
@@ -1035,7 +1036,8 @@ SUBROUTINE setupmat (q,dyn,nat,at,bg,tau,itau_blk,nsc,alat, &
   !
   USE kinds,      ONLY : DP
   USE constants,  ONLY : tpi
-  USE cell_base, ONLY: celldm
+  USE cell_base,  ONLY : celldm
+  USE rigid,      ONLY : rgd_blk
   !
   IMPLICIT NONE
   !
@@ -2068,7 +2070,6 @@ SUBROUTINE a2Fdos &
   character(len=256)        :: elph_dir
   real(DP), external       :: dos_gam
   CHARACTER(LEN=6)         :: int_to_char
-  EXTERNAL do_q2r
   !
   !
   nmodes = 3*nat

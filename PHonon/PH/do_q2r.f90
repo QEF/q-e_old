@@ -22,6 +22,7 @@ SUBROUTINE do_q2r(fildyn_, flfrc, prefix, zasr, la2F, loto_2d)
                          read_dyn_mat, read_dyn_mat_tail, &
                          write_dyn_mat_header, write_ifc
   USE environment, ONLY : environment_start, environment_end
+  USE rigid, ONLY: rgd_blk
   !
   IMPLICIT NONE
   !
