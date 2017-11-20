@@ -160,7 +160,7 @@ write_matrix.o \
 write_modes.o \
 write_rec.o \
 zstar_eu.o \
-zstar_eu_us.o 
+zstar_eu_us.o
 
 RAMANOBJS =    \
 psyme2.o   \
